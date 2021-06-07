@@ -1,4 +1,4 @@
-const store: HTMLDivElement = document.querySelector('#store') as HTMLDivElement
+const store: HTMLDivElement = document.querySelector('#my-store-61531483') as HTMLDivElement
 
 const hiddenStore: EventListener = function (event) {
   const target: HTMLElement = event.target as HTMLElement
