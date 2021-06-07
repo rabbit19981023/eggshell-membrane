@@ -1,7 +1,7 @@
-import AbstractView from './components/AbstractView.js'
-import Home from './components/home.js'
-import About from './components/about.js'
-import Contact from './components/contact.js'
+import AbstractView from '../components/AbstractView.js'
+import Home from '../components/home.js'
+import About from '../components/about.js'
+import Contact from '../components/contact.js'
 
 /** Content **/
 const content: HTMLDivElement = document.querySelector('.content') as HTMLDivElement
