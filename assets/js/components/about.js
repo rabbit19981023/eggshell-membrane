@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,51 +49,23 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import Home from './components/home.js';
-import About from './components/about.js';
-import Contact from './components/contact.js';
-/** Content **/
-var content = document.querySelector('.content');
-/** Change the URL without page-refresh **/
-var navigate = function (event) {
-    var dataLink = event.target;
-    if (dataLink.matches('.data-link')) {
-        // prevent page redirect
-        event.preventDefault();
-        var path = dataLink.getAttribute('href');
-        window.history.pushState(null, 'View Content', path);
-        router(event);
+import AbstractView from './AbstractView.js';
+var About = /** @class */ (function (_super) {
+    __extends(About, _super);
+    function About() {
+        var _this = 
+        // Call Parent Class' Constructor to Init Properties
+        _super.call(this) || this;
+        _this.setTitle('About');
+        return _this;
     }
-};
-/** Routes Mapping
- *
- * EveryTime the URL changed, re-fetch the view content
- *
- **/
-var router = function () {
-    return __awaiter(this, void 0, void 0, function () {
-        var routes, path, route, title, view;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    routes = [
-                        { path: '/', view: new Home() },
-                        { path: '/about', view: new About() },
-                        { path: '/contact', view: new Contact() }
-                    ];
-                    path = window.location.pathname;
-                    route = routes.find(function (route) { return route.path === path; });
-                    title = route.view.getTitle();
-                    return [4 /*yield*/, route.view.getContent()];
-                case 1:
-                    view = _a.sent();
-                    document.title = title;
-                    content.innerHTML = view;
-                    return [2 /*return*/];
-            }
+    About.prototype.getContent = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            return __generator(this, function (_a) {
+                return [2 /*return*/, ("\n      <h2>About Us</h2>\n    ")];
+            });
         });
-    });
-};
-window.addEventListener('DOMContentLoad', router);
-window.addEventListener('popstate', router);
-window.addEventListener('click', navigate);
+    };
+    return About;
+}(AbstractView));
+export default About;

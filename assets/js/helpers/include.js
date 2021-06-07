@@ -1,3 +1,4 @@
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
     return new (P || (P = Promise))(function (resolve, reject) {
@@ -34,51 +35,34 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-import Home from './components/home.js';
-import About from './components/about.js';
-import Contact from './components/contact.js';
-/** Content **/
-var content = document.querySelector('.content');
-/** Change the URL without page-refresh **/
-var navigate = function (event) {
-    var dataLink = event.target;
-    if (dataLink.matches('.data-link')) {
-        // prevent page redirect
-        event.preventDefault();
-        var path = dataLink.getAttribute('href');
-        window.history.pushState(null, 'View Content', path);
-        router(event);
-    }
-};
-/** Routes Mapping
- *
- * EveryTime the URL changed, re-fetch the view content
- *
- **/
-var router = function () {
+var include = function () {
     return __awaiter(this, void 0, void 0, function () {
-        var routes, path, route, title, view;
+        var div, html, response, result, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
-                    routes = [
-                        { path: '/', view: new Home() },
-                        { path: '/about', view: new About() },
-                        { path: '/contact', view: new Contact() }
-                    ];
-                    path = window.location.pathname;
-                    route = routes.find(function (route) { return route.path === path; });
-                    title = route.view.getTitle();
-                    return [4 /*yield*/, route.view.getContent()];
+                    _a.trys.push([0, 3, , 4]);
+                    div = document.querySelector('[include-html]');
+                    html = div.getAttribute('include-html');
+                    return [4 /*yield*/, fetch(html)];
                 case 1:
-                    view = _a.sent();
-                    document.title = title;
-                    content.innerHTML = view;
+                    response = _a.sent();
+                    return [4 /*yield*/, response.text()];
+                case 2:
+                    result = _a.sent();
+                    div.innerHTML = result;
+                    div.removeAttribute('include-html');
+                    return [3 /*break*/, 4];
+                case 3:
+                    err_1 = _a.sent();
+                    // exit the function if an error occured.
+                    // it means there are no more include-html remain
+                    return [2 /*return*/];
+                case 4:
+                    include();
                     return [2 /*return*/];
             }
         });
     });
 };
-window.addEventListener('DOMContentLoad', router);
-window.addEventListener('popstate', router);
-window.addEventListener('click', navigate);
+include();

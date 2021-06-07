@@ -1,0 +1,7 @@
+node_modules
+.netlify
+netlify.toml
+
+assets/js
+
+yarn-error.log
