@@ -1,5 +1,5 @@
 ## Usage
-Before you open the `assets/index.html`, you have to do two things below:
+Before you open the website, you have to do things below:
 
 1. check if `python`, `nodejs`, `typescript` are already installed in your local machine. If not:
 - go to official [Python](https://www.python.org/) download and install it.
@@ -13,3 +13,4 @@ Before you open the `assets/index.html`, you have to do two things below:
 - run `cd /path/to/this-project-directory` and `python -m http.server 8000`
 
 4. open a browser with `localhost:8000`, it should be all things work!
+- Warning: you should not open `./assets/index` directly. We need `http://` to make sure all things working as expected, rather than `file:///`
