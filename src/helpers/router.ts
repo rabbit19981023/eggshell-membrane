@@ -13,7 +13,7 @@ const navigate: EventListener = function (event: Event) {
     // prevent page redirect
     event.preventDefault()
 
-    const path = dataLink.getAttribute('href')
+    const path = dataLink.href
     window.history.pushState(null, 'View Content', path)
 
     router(event)
@@ -46,6 +46,6 @@ const router: EventListener = async function () {
   content.innerHTML = view
 }
 
-window.addEventListener('DOMContentLoad', router)
+window.addEventListener('DOMContentLoaded', router)
 window.addEventListener('popstate', router)
 window.addEventListener('click', navigate)
