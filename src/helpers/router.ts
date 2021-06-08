@@ -16,8 +16,8 @@ const navigate: EventListener = function (event: Event) {
     // prevent page redirect
     event.preventDefault()
 
-    const path = target.href
-    window.history.pushState(null, 'View Content Changed!', path)
+    const url = target.href
+    window.history.pushState(null, 'View Content Changed!', url)
 
     router(event)
   }
@@ -48,7 +48,7 @@ const router: EventListener = async function (event) {
     
     document.title = title
     content.innerHTML = view
-  } catch (err) { }
+  } catch (err) {}
 
   activeLink(path)
   toggleStore(event)

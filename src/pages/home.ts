@@ -8,8 +8,11 @@ class Home extends AbstractView {
   }
 
   async getContent () {
+    const Carousel: Response = await fetch('carousel.html')
+    const carousel = await Carousel.text()
+
     return (`
-      <h2>Home</h2>
+      ${carousel}
     `)
   }
 }
