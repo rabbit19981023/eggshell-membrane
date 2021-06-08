@@ -54,6 +54,13 @@ const router: EventListener = async function (event) {
   toggleStore(event)
 }
 
+const registerRouting: EventListener = function () {
+  const navLinks: NodeListOf<HTMLLinkElement> = document.querySelectorAll('.nav-link') as NodeListOf<HTMLLinkElement>
+  navLinks.forEach(navLink => {
+    navLink.addEventListener('click', navigate)
+  })
+}
+
+window.addEventListener('DOMContentLoaded', registerRouting)
 window.addEventListener('DOMContentLoaded', router)
 window.addEventListener('popstate', router)
-window.addEventListener('click', navigate)
