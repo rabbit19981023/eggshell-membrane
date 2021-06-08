@@ -1,7 +1,7 @@
-import AbstractView from '../components/AbstractView.js'
-import Home from '../components/home.js'
-import About from '../components/about.js'
-import Contact from '../components/contact.js'
+import AbstractView from '../pages/AbstractView.js'
+import Home from '../pages/home.js'
+import About from '../pages/about.js'
+import Contact from '../pages/contact.js'
 
 import { toggleStore } from './toggle-store.js'
 
