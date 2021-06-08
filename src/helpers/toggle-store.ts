@@ -18,7 +18,6 @@ const toggleStore = function (event: Event) {
     }
 
   } catch (err) {
-    event.preventDefault()
     if (window.location.pathname === '/store') {
       document.title = 'Store'
       content.style.display = 'none'

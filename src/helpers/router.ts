@@ -3,6 +3,7 @@ import Home from '../pages/home.js'
 import About from '../pages/about.js'
 import Contact from '../pages/contact.js'
 
+import { activeLink } from './activeLink.js'
 import { toggleStore } from './toggle-store.js'
 
 /** Content **/
@@ -16,7 +17,7 @@ const navigate: EventListener = function (event: Event) {
     event.preventDefault()
 
     const path = target.href
-    window.history.pushState(null, 'View Content', path)
+    window.history.pushState(null, 'View Content Changed!', path)
 
     router(event)
   }
@@ -39,8 +40,8 @@ const router: EventListener = async function (event) {
     { path: '/contact', view: new Contact() }
   ]
 
+  const path = window.location.pathname
   try {
-    const path = window.location.pathname
     const route = routes.find(route => route.path === path) as Route
     const title = route.view.getTitle()
     const view = await route.view.getContent()
@@ -49,6 +50,7 @@ const router: EventListener = async function (event) {
     content.innerHTML = view
   } catch (err) { }
 
+  activeLink(path)
   toggleStore(event)
 }
 
