@@ -3,17 +3,19 @@ import Home from '../components/home.js'
 import About from '../components/about.js'
 import Contact from '../components/contact.js'
 
+import { toggleStore } from './toggle-store.js'
+
 /** Content **/
 const content: HTMLDivElement = document.querySelector('.content') as HTMLDivElement
 
 /** Change the URL without page-refresh **/
 const navigate: EventListener = function (event: Event) {
-  const dataLink: HTMLLinkElement = event.target as HTMLLinkElement
-  if (dataLink.matches('.data-link')) {
+  const target: HTMLLinkElement = event.target as HTMLLinkElement
+  if (target.matches('.nav-link')) {
     // prevent page redirect
     event.preventDefault()
 
-    const path = dataLink.href
+    const path = target.href
     window.history.pushState(null, 'View Content', path)
 
     router(event)
@@ -25,7 +27,7 @@ const navigate: EventListener = function (event: Event) {
  * EveryTime the URL changed, re-fetch the view content
  * 
  **/
-const router: EventListener = async function () {
+const router: EventListener = async function (event) {
   interface Route {
     path: string,
     view: AbstractView
@@ -37,13 +39,17 @@ const router: EventListener = async function () {
     { path: '/contact', view: new Contact() }
   ]
 
-  const path = window.location.pathname
-  const route = routes.find(route => route.path === path) as Route
-  const title = route.view.getTitle()
-  const view = await route.view.getContent()
-  
-  document.title = title
-  content.innerHTML = view
+  try {
+    const path = window.location.pathname
+    const route = routes.find(route => route.path === path) as Route
+    const title = route.view.getTitle()
+    const view = await route.view.getContent()
+    
+    document.title = title
+    content.innerHTML = view
+  } catch (err) { }
+
+  toggleStore(event)
 }
 
 window.addEventListener('DOMContentLoaded', router)
