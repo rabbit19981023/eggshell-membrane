@@ -4,6 +4,7 @@ const toggleStore = function (event: Event) {
   const target: HTMLElement = event.target as HTMLElement
 
   try {
+    /** View Link Event Triggered **/
     if (target.matches('.data-link')) {
       content.style.display = 'block'
       store.style.display = 'none'
@@ -16,8 +17,8 @@ const toggleStore = function (event: Event) {
       store.style.display = 'block'
       return
     }
-
   } catch (err) {
+    /** Window Event Triggered **/
     if (window.location.pathname === '/store') {
       document.title = 'Store'
       content.style.display = 'none'

@@ -6,7 +6,7 @@ import Contact from '../pages/contact.js'
 import { activeLink } from './activeLink.js'
 import { toggleStore } from './toggle-store.js'
 
-/** Content **/
+/** View Content Div **/
 const content: HTMLDivElement = document.querySelector('.content') as HTMLDivElement
 
 /** Change the URL without page-refresh **/
