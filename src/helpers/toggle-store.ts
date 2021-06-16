@@ -6,27 +6,35 @@ const toggleStore = function (event: Event) {
   try {
     /** View Link Event Triggered **/
     if (target.matches('.data-link')) {
-      content.style.zIndex = '1000'
-      store.style.zIndex = '0'
+      content.style.opacity = '1'
+      content.style.pointerEvents = 'auto'
+      store.style.opacity = '0'
+      store.style.pointerEvents = 'none'
       return
     }
 
     if (target.matches('.store-link')) {
       document.title = 'Store'
-      content.style.zIndex = '0'
-      store.style.zIndex = '1000'
+      content.style.opacity = '0'
+      content.style.pointerEvents = 'none'
+      store.style.opacity = '1'
+      store.style.pointerEvents = 'auto'
       return
     }
   } catch (err) {
     /** Window Event Triggered **/
     if (window.location.pathname === '/store') {
       document.title = 'Store'
-      content.style.zIndex = '0'
-      store.style.zIndex = '1000'
+      content.style.opacity = '0'
+      content.style.pointerEvents = 'none'
+      store.style.opacity = '1'
+      store.style.pointerEvents = 'auto'
       return
     }
-    content.style.zIndex = '1000'
-    store.style.zIndex = '0'
+    content.style.opacity = '1'
+    content.style.pointerEvents = 'auto'
+    store.style.opacity = '0'
+    store.style.pointerEvents = 'none'
   }
 }
 
