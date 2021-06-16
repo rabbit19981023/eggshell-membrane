@@ -1,7 +1,7 @@
 import { AwesomeGraphQLClient } from 'awesome-graphql-client'
 import fetch from 'node-fetch'
 
-let cachedClient: any // not support Type Feature
+let cachedClient: any // no supported Type yet
 const createGraphQLClient = async function (): Promise<any> {
   if (cachedClient) {
     return cachedClient

@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.createGraphQLClient = void 0;
 var awesome_graphql_client_1 = require("awesome-graphql-client");
 var node_fetch_1 = __importDefault(require("node-fetch"));
-var cachedClient; // not support Type Feature
+var cachedClient; // no supported Type yet
 var createGraphQLClient = function () {
     return __awaiter(this, void 0, void 0, function () {
         var client;

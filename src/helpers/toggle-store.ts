@@ -6,27 +6,35 @@ const toggleStore = function (event: Event) {
   try {
     /** View Link Event Triggered **/
     if (target.matches('.data-link')) {
-      content.style.display = 'block'
-      store.style.display = 'none'
+      content.style.zIndex = '1000'
+      store.style.zIndex = '0'
+      //content.style.display = 'block'
+      //store.style.display = 'none'
       return
     }
 
     if (target.matches('.store-link')) {
       document.title = 'Store'
-      content.style.display = 'none'
-      store.style.display = 'block'
+      content.style.zIndex = '0'
+      store.style.zIndex = '1000'
+      //content.style.display = 'none'
+      //store.style.display = 'block'
       return
     }
   } catch (err) {
     /** Window Event Triggered **/
     if (window.location.pathname === '/store') {
       document.title = 'Store'
-      content.style.display = 'none'
-      store.style.display = 'block'
+      content.style.zIndex = '0'
+      store.style.zIndex = '1000'
+      //content.style.display = 'none'
+      //store.style.display = 'block'
       return
     }
-    content.style.display = 'block'
-    store.style.display = 'none'
+    content.style.zIndex = '1000'
+    store.style.zIndex = '0'
+    //content.style.display = 'block'
+    //store.style.display = 'none'
   }
 }
 
