@@ -1,0 +1,15 @@
+{
+  "scripts": {
+    "build-netlify": "npm install typescript && npm run build-frontend && npm run build-aws-functions",
+    "build-frontend": "tsc --project tsconfig-frontend.json",
+    "build-aws-functions": "tsc --project tsconfig-aws-functions.json",
+    "build-frontend-dev": "npm run build-frontend -- --watch",
+    "build-aws-functions-dev": "npm run build-aws-functions -- --watch"
+  },
+  "dependencies": {
+    "@netlify/functions": "^0.7.2",
+    "@types/node-fetch": "^2.5.10",
+    "awesome-graphql-client": "^0.9.0",
+    "node-fetch": "^2.6.1"
+  }
+}

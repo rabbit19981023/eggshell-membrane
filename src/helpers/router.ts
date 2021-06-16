@@ -45,7 +45,7 @@ const router: EventListener = async function (event) {
     const route = routes.find(route => route.path === path) as Route
     const title = route.view.getTitle()
     const view = await route.view.getContent()
-    
+
     document.title = title
     content.innerHTML = view
   } catch (err) {}
