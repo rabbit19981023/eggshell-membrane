@@ -1,5 +1,5 @@
 const toggleStore = function (event: Event) {
-  const store: HTMLDivElement = document.querySelector('#my-store-61531483') as HTMLDivElement
+  const store: HTMLDivElement = document.querySelector('#my-store-61706777') as HTMLDivElement
   const content: HTMLDivElement = document.querySelector('.content') as HTMLDivElement
   const target: HTMLElement = event.target as HTMLElement
 
