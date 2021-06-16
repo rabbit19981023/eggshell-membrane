@@ -8,8 +8,6 @@ const toggleStore = function (event: Event) {
     if (target.matches('.data-link')) {
       content.style.zIndex = '1000'
       store.style.zIndex = '0'
-      //content.style.display = 'block'
-      //store.style.display = 'none'
       return
     }
 
@@ -17,8 +15,6 @@ const toggleStore = function (event: Event) {
       document.title = 'Store'
       content.style.zIndex = '0'
       store.style.zIndex = '1000'
-      //content.style.display = 'none'
-      //store.style.display = 'block'
       return
     }
   } catch (err) {
@@ -27,14 +23,10 @@ const toggleStore = function (event: Event) {
       document.title = 'Store'
       content.style.zIndex = '0'
       store.style.zIndex = '1000'
-      //content.style.display = 'none'
-      //store.style.display = 'block'
       return
     }
     content.style.zIndex = '1000'
     store.style.zIndex = '0'
-    //content.style.display = 'block'
-    //store.style.display = 'none'
   }
 }
 
