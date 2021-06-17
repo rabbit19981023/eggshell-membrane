@@ -28,26 +28,44 @@ const navigate: EventListener = function (event: Event) {
  * EveryTime the URL changed, re-fetch the view content
  * 
  **/
+interface CachedView {
+  title: string,
+  content: string
+}
+
+interface CachedViews {
+  [ viewName: string ]: CachedView
+}
+
+interface Route {
+  path: string,
+  view: AbstractView
+}
+
+const cachedViews: CachedViews = { } as CachedViews
 const router: EventListener = async function (event) {
-  interface Route {
-    path: string,
-    view: AbstractView
-  }
   // Routes Context
   const routes: Route[] = [
-    { path: '/', view: new Home() },
-    { path: '/brand', view: new Brand() },
-    { path: '/contact', view: new Contact() }
+    { path: '/', view: new Home('home') },
+    { path: '/brand', view: new Brand('brand') },
+    { path: '/contact', view: new Contact('contact') }
   ]
 
   const path = window.location.pathname
   try {
     const route = routes.find(route => route.path === path) as Route
-    const title = route.view.getTitle()
-    const view = await route.view.getContent()
 
-    document.title = title
-    content.innerHTML = view
+    let cachedView: CachedView = cachedViews[route.view.name]
+    if (!cachedView) {
+      cachedView = { } as CachedView 
+      cachedView.title = route.view.getTitle()
+      cachedView.content = await route.view.getContent()
+
+      cachedViews[route.view.name] = cachedView
+    }
+
+    document.title = cachedView.title
+    content.innerHTML = cachedView.content
   } catch (err) {}
 
   activeLink(path)

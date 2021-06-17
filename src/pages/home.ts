@@ -1,9 +1,10 @@
 import AbstractView from './AbstractView.js'
 
 class Home extends AbstractView {
-  constructor () {
+  constructor (name: string) {
     // Call Parent Class' Constructor to Init Properties
     super()
+    this.name = name
     this.setTitle('膜力蛋')
   }
 
@@ -11,9 +12,10 @@ class Home extends AbstractView {
     const Carousel: Response = await fetch('carousel.html')
     const carousel = await Carousel.text()
 
-    return (`
+    this.content = (`
       ${carousel}
     `)
+    return this.content
   }
 }
 
