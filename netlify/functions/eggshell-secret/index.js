@@ -40,21 +40,21 @@ exports.handler = void 0;
 var config_1 = require("../config");
 var handler = function (event, context) {
     return __awaiter(this, void 0, void 0, function () {
-        var client, query, carousels, response;
+        var client, query, eggshellSecrets, response;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     client = config_1.createGraphQLClient();
-                    query = "\n    {\n      carousels {\n        title\n        description\n        image {\n          url\n        }\n      }\n    }\n  ";
+                    query = "\n    {\n      eggshellSecrets {\n        field1 {\n          html\n        }\n        field2 {\n          html\n        }\n        image {\n          url\n        }\n      }\n    }\n  ";
                     return [4 /*yield*/, client.request(query)];
                 case 1:
-                    carousels = (_a.sent()).carousels;
+                    eggshellSecrets = (_a.sent()).eggshellSecrets;
                     response = {
                         statusCode: 200,
                         headers: {
                             'Content-Type': 'application/json; charset=utf-8'
                         },
-                        body: JSON.stringify(carousels)
+                        body: JSON.stringify(eggshellSecrets)
                     };
                     return [2 /*return*/, response];
             }

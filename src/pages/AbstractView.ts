@@ -18,7 +18,7 @@ class AbstractView {
   }
 
   async getContent () {
-    return ''
+    return this.content
   }
 }
 

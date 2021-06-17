@@ -1,5 +1,17 @@
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background-color: #F1F7FC;
+}
+
 #container {
   position: relative;
+  top: 3.5rem;
 }
 
 #my-store-61706777 {
@@ -12,3 +24,54 @@
   top: 0;
   width: 100%;
 }
+
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 3000;
+}
+
+.carousel-item:nth-child(4) .container .carousel-caption h1,
+.carousel-item:nth-child(4) .container .carousel-caption p {
+  color: #333;
+  font-weight: 550;
+  text-shadow: -3px 0px 7px #ffffff;
+}
+
+.eggshell-secret {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.eggshell-secret-img {
+  object-fit: cover;
+  max-width: 95%;
+  margin-left: 5%;
+}
+
+.eggshell-secret-intro {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.eggshell-secret-intro h1 {
+  font-size: 2.5rem;
+  font-weight: 550;
+  margin-bottom: 3rem;
+}
+
+.eggshell-secret-fields {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.eggshell-secret-fields li {
+  font-size: 1.5rem;
+}
+

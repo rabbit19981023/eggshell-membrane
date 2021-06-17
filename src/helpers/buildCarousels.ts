@@ -13,7 +13,7 @@ const buildCarousels = async function (): Promise<void> {
   let count: number = 0
 
   if (!cachedCarousels) {
-    const response: Response = await fetch('https://eggshell-membrane.netlify.app/.netlify/functions/carousels')
+    const response: Response = await fetch('/.netlify/functions/carousels')
     cachedCarousels = await response.json()
   }
 
