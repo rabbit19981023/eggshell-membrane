@@ -14,7 +14,7 @@ const toggleStore = function (event: Event) {
     }
 
     if (target.matches('.store-link')) {
-      document.title = 'Store'
+      document.title = '線上選購 | 膜力蛋'
       content.style.opacity = '0'
       content.style.pointerEvents = 'none'
       store.style.opacity = '1'
@@ -24,7 +24,7 @@ const toggleStore = function (event: Event) {
   } catch (err) {
     /** Window Event Triggered **/
     if (window.location.pathname === '/store') {
-      document.title = 'Store'
+      document.title = '線上選購 | 膜力蛋'
       content.style.opacity = '0'
       content.style.pointerEvents = 'none'
       store.style.opacity = '1'
