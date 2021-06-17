@@ -9,6 +9,7 @@ body {
   background-color: #F1F7FC;
 }
 
+/** View Content Section **/
 #container {
   position: relative;
   top: 3.5rem;
@@ -25,6 +26,7 @@ body {
   width: 100%;
 }
 
+/** Navbar Section **/
 .navbar {
   position: fixed;
   top: 0;
@@ -32,6 +34,8 @@ body {
   z-index: 3000;
 }
 
+
+/** Carousel Section **/
 .carousel-item:nth-child(4) .container .carousel-caption h1,
 .carousel-item:nth-child(4) .container .carousel-caption p {
   color: #333;
@@ -39,6 +43,7 @@ body {
   text-shadow: -3px 0px 7px #ffffff;
 }
 
+/** Eggshell Secret Section **/
 .eggshell-secret {
   display: flex;
   flex-flow: row wrap;
@@ -77,3 +82,81 @@ body {
   margin-top: 1rem;
 }
 
+/** Eggshell Compare Section **/
+.compare {
+  padding: 2rem;
+  text-align: center;
+}
+
+.compare-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  margin: -0.5rem;
+  margin-top: 1rem;
+}
+
+.compare-card {
+  display: flex;
+  flex-flow: column;
+  padding: 1.25rem;
+  border: 1.5px solid #ffffff80;
+  border-radius: 2px;
+  margin: 0.5rem;
+}
+
+.stars {
+  border: 1.5px solid #ffffff80;
+  border-radius: 2px;
+}
+
+.compare-intro {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  font-size: 1.25rem;
+}
+
+.pig-protein {
+  width: 15rem;
+  height: 21.5rem;
+  background-color: #88C3B0;
+}
+
+.pig-protein .stars {
+  width: 17rem;
+  margin-left: -2.25rem;
+  background-color: #53A58A;
+}
+
+.eggshell-protein {
+  width: 20rem;
+  height: 25rem;
+  background-color: #01828F;
+}
+
+.eggshell-protein .stars {
+  width: 24rem;
+  margin-left: -3.25rem;
+  margin-top: 1rem;
+  background-color: #006069;
+}
+
+.eggshell-protein .stars,
+.eggshell-protein .compare-intro {
+  font-size: 1.5rem;
+}
+
+.fish-protein {
+  width: 15rem;
+  height: 21.5rem;
+  background-color: #09678A;
+}
+
+.fish-protein .stars {
+  width: 17rem;
+  margin-left: -2.25rem;
+  background-color: #064D67;
+}

@@ -12,12 +12,16 @@ class Home extends AbstractView {
     const Carousel: Response = await fetch('carousel.html')
     const carousel: string = await Carousel.text()
 
-    const EggshellSecret: Response = await fetch('eggshell-secret.html')
-    const eggshellSecret: string = await EggshellSecret.text()
+    const Secret: Response = await fetch('secret.html')
+    const secret: string = await Secret.text()
+
+    const Compare: Response = await fetch('compare.html')
+    const compare: string = await Compare.text()
 
     this.content = (`
       ${carousel}
-      ${eggshellSecret}
+      ${secret}
+      ${compare}
     `)
     return this.content
   }
