@@ -68,7 +68,7 @@ body {
   display: flex;
   justify-content: space-around;
   width: 100%;
-  margin-top: 100px;
+  margin-top: 30px;
 }
 
 .eggshell-secret-fields li {
