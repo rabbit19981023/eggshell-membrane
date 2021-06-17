@@ -42,12 +42,12 @@ body {
 .eggshell-secret {
   display: flex;
   flex-flow: row wrap;
+  padding: 2rem;
 }
 
 .eggshell-secret-img {
   object-fit: cover;
-  max-width: 95%;
-  margin-left: 5%;
+  max-width: 100%;
 }
 
 .eggshell-secret-intro {
