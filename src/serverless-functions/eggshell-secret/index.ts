@@ -5,11 +5,15 @@ const handler: Handler = async function (event: HandlerEvent, context: HandlerCo
   const client = createGraphQLClient()
 
   interface Field {
+    title: string
     field1: {
       html: string
     },
     field2: {
       html: string
+    },
+    image: {
+      url: string
     }
   }
   interface Fields {
@@ -19,6 +23,7 @@ const handler: Handler = async function (event: HandlerEvent, context: HandlerCo
   const query: string = `
     {
       eggshellSecrets {
+        title
         field1 {
           html
         }

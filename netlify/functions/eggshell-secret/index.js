@@ -45,7 +45,7 @@ var handler = function (event, context) {
             switch (_a.label) {
                 case 0:
                     client = config_1.createGraphQLClient();
-                    query = "\n    {\n      eggshellSecrets {\n        field1 {\n          html\n        }\n        field2 {\n          html\n        }\n        image {\n          url\n        }\n      }\n    }\n  ";
+                    query = "\n    {\n      eggshellSecrets {\n        title\n        field1 {\n          html\n        }\n        field2 {\n          html\n        }\n        image {\n          url\n        }\n      }\n    }\n  ";
                     return [4 /*yield*/, client.request(query)];
                 case 1:
                     eggshellSecrets = (_a.sent()).eggshellSecrets;
