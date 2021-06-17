@@ -100,7 +100,7 @@ body {
 .compare-card {
   display: flex;
   flex-flow: column;
-  padding: 1.25rem;
+  padding: 1rem;
   border: 1.5px solid #ffffff80;
   border-radius: 2px;
   margin: 0.5rem;
@@ -116,30 +116,30 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: center;
-  font-size: 1.25rem;
+  font-size: 1rem;
 }
 
 .pig-protein {
-  width: 15rem;
-  height: 21.5rem;
+  width: 12rem;
+  height: 16rem;
   background-color: #88C3B0;
 }
 
 .pig-protein .stars {
-  width: 17rem;
-  margin-left: -2.25rem;
+  width: 13.5rem;
+  margin-left: -1.8rem;
   background-color: #53A58A;
 }
 
 .eggshell-protein {
-  width: 20rem;
-  height: 25rem;
+  width: 16rem;
+  height: 20rem;
   background-color: #01828F;
 }
 
 .eggshell-protein .stars {
-  width: 24rem;
-  margin-left: -3.25rem;
+  width: 18rem;
+  margin-left: -2rem;
   margin-top: 1rem;
   background-color: #006069;
 }
@@ -150,13 +150,59 @@ body {
 }
 
 .fish-protein {
-  width: 15rem;
-  height: 21.5rem;
+  width: 12rem;
+  height: 16rem;
   background-color: #09678A;
 }
 
 .fish-protein .stars {
-  width: 17rem;
-  margin-left: -2.25rem;
+  width: 13.5rem;
+  margin-left: -1.8rem;
   background-color: #064D67;
+}
+
+@media screen and (min-width: 576px) {
+  .compare-card {
+    padding: 1.25rem;
+  }
+
+  .compare-intro {
+    font-size: 1.25rem;
+  }
+
+  .pig-protein {
+    width: 15rem;
+    height: 21.5rem;
+  }
+
+  .pig-protein .stars {
+    width: 17rem;
+    margin-left: -2.35rem;
+  }
+
+  .eggshell-protein {
+    width: 20rem;
+    height: 25rem;
+  }
+
+  .eggshell-protein .stars {
+    width: 24rem;
+    margin-left: -3.35rem;
+    margin-top: 1rem;
+  }
+
+  .eggshell-protein .stars,
+  .eggshell-protein .compare-intro {
+    font-size: 1.5rem;
+  }
+
+  .fish-protein {
+    width: 15rem;
+    height: 21.5rem;
+  }
+
+  .fish-protein .stars {
+    width: 17rem;
+    margin-left: -2.35rem;
+  }
 }
