@@ -4,7 +4,7 @@ class Home extends AbstractView {
   constructor () {
     // Call Parent Class' Constructor to Init Properties
     super()
-    this.setTitle('Home')
+    this.setTitle('膜力蛋')
   }
 
   async getContent () {

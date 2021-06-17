@@ -1,6 +1,6 @@
 import AbstractView from '../pages/AbstractView.js'
 import Home from '../pages/home.js'
-import About from '../pages/about.js'
+import Brand from '../pages/brand.js'
 import Contact from '../pages/contact.js'
 
 import { activeLink } from './activeLink.js'
@@ -36,7 +36,7 @@ const router: EventListener = async function (event) {
   // Routes Context
   const routes: Route[] = [
     { path: '/', view: new Home() },
-    { path: '/about', view: new About() },
+    { path: '/brand', view: new Brand() },
     { path: '/contact', view: new Contact() }
   ]
 

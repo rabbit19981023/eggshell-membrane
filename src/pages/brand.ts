@@ -1,17 +1,17 @@
 import AbstractView from './AbstractView.js'
 
-class About extends AbstractView {
+class Brand extends AbstractView {
   constructor () {
     // Call Parent Class' Constructor to Init Properties
     super()
-    this.setTitle('About')
+    this.setTitle('品牌理念 | 膜力蛋')
   }
 
   async getContent () {
     return (`
-      <h2>About Us</h2>
+      <h2>品牌理念</h2>
     `)
   }
 }
 
-export default About
+export default Brand
