@@ -6,35 +6,28 @@ const toggleStore = function (event: Event) {
   try {
     /** View Link Event Triggered **/
     if (target.matches('.data-link')) {
-      content.style.opacity = '1'
-      content.style.pointerEvents = 'auto'
-      store.style.opacity = '0'
-      store.style.pointerEvents = 'none'
+      content.style.visibility = 'visible'
+      store.style.visibility = 'hidden'
       return
     }
 
     if (target.matches('.store-link')) {
       document.title = '線上選購 | 膜力蛋'
-      content.style.opacity = '0'
-      content.style.pointerEvents = 'none'
-      store.style.opacity = '1'
-      store.style.pointerEvents = 'auto'
+      content.style.visibility = 'hidden'
+      store.style.visibility = 'visible'
       return
     }
   } catch (err) {
     /** Window Event Triggered **/
     if (window.location.pathname === '/store') {
       document.title = '線上選購 | 膜力蛋'
-      content.style.opacity = '0'
-      content.style.pointerEvents = 'none'
-      store.style.opacity = '1'
-      store.style.pointerEvents = 'auto'
+      content.style.visibility = 'hidden'
+      store.style.visibility = 'visible'
       return
     }
-    content.style.opacity = '1'
-    content.style.pointerEvents = 'auto'
-    store.style.opacity = '0'
-    store.style.pointerEvents = 'none'
+
+    content.style.visibility = 'visible'
+    store.style.visibility = 'hidden'
   }
 }
 
