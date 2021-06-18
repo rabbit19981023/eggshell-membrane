@@ -22,6 +22,9 @@ class Home extends AbstractView {
       ${carousel}
       ${secret}
       ${compare}
+
+      <img src="../img/pros.png" class="pros">
+      <hr>
     `)
     return this.content
   }

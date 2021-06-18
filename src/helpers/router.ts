@@ -13,7 +13,7 @@ const content: HTMLDivElement = document.querySelector('.content') as HTMLDivEle
 const navigate: EventListener = function (event: Event) {
   const target: HTMLLinkElement = event.target as HTMLLinkElement
   if (target.matches('.nav-link')) {
-    // prevent page redirect
+    // prevent page reload
     event.preventDefault()
 
     const updateHistory = function () {
@@ -81,6 +81,20 @@ const router: EventListener = async function (event) {
 }
 
 const registerRouting: EventListener = function () {
+  const homeLink: HTMLImageElement = document.querySelector('.main-brand') as HTMLImageElement
+  homeLink.addEventListener('click', (event) => {
+    // prevent page reload
+    event.preventDefault()
+
+    const updateHistory = function () {
+      const path = '/'
+      window.history.pushState(null, 'View Content Changed!', path)
+    }
+
+    updateHistory()
+    router(event)
+  })
+
   const navLinks: NodeListOf<HTMLLinkElement> = document.querySelectorAll('.nav-link') as NodeListOf<HTMLLinkElement>
   navLinks.forEach(navLink => {
     navLink.addEventListener('click', navigate)
