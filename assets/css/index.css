@@ -218,6 +218,15 @@ body {
   width: 40rem;
 }
 
+.brand-img-1 {
+  margin: 1rem 0;
+}
+
+.brand-img-2 {
+  width: 60rem;
+  margin-top: 1rem;
+}
+
 .brand-content {
   text-align: center;
   margin-top: 1.5rem;

@@ -18,12 +18,12 @@
   -- We will replace these codes with better practice in React.js -->
 <img
     src = x
-    alt = "build-carousels"
     style = "display: none"
     onerror = "
       const script = document.createElement('script')
       script.src = './js/helpers/buildCarousels.js'
       document.body.appendChild(script)
       script.remove()
+      this.remove()
     "
 >
