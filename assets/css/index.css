@@ -10,12 +10,13 @@ body {
 
 #my-store-61706777 {
   position: absolute;
-  top: 0.5rem;
+  top: 1.5rem;
+  overflow-y: hidden;
 }
 
 .content {
   position: absolute;
-  top: 0;
+  top: 1rem;
   width: 100%;
 }
 
@@ -27,6 +28,10 @@ body {
   z-index: 3000;
 }
 
+.main-brand {
+  object-fit: cover;
+  width: 7.5rem;
+}
 
 /** Carousel Section **/
 .carousel-item:nth-child(4) .container .carousel-caption h1,
@@ -229,7 +234,7 @@ body {
 
 .brand-content {
   text-align: center;
-  margin-top: 1.5rem;
+  margin-top: 1.5rem; 
 }
 
 @media screen and (min-width: 576px) {

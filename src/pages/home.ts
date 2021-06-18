@@ -18,14 +18,10 @@ class Home extends AbstractView {
     const Compare: Response = await fetch('compare.html')
     const compare: string = await Compare.text()
 
-    const Brand: Response = await fetch('brand.html')
-    const brand: string = await Brand.text()
-
     this.content = (`
       ${carousel}
       ${secret}
       ${compare}
-      ${brand}
     `)
     return this.content
   }
