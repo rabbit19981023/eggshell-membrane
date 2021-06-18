@@ -1,10 +1,3 @@
-html,
-body {
-  overflow-x: hidden;
-  width: 100%;
-  height: 100%;
-}
-
 body {
   background-color: #F1F7FC;
 }
@@ -146,7 +139,7 @@ body {
 
 .eggshell-protein .stars,
 .eggshell-protein .compare-intro {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .fish-protein {
@@ -162,6 +155,10 @@ body {
 }
 
 @media screen and (min-width: 576px) {
+  .compare-wrapper {
+    margin-top: 2rem;
+  }
+
   .compare-card {
     padding: 1.25rem;
   }
@@ -193,7 +190,7 @@ body {
 
   .eggshell-protein .stars,
   .eggshell-protein .compare-intro {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 
   .fish-protein {
@@ -206,3 +203,31 @@ body {
     margin-left: -2.35rem;
   }
 }
+
+/** Brand Section **/
+#brand {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.brand-img {
+  object-fit: cover;
+  max-width: 100%;
+  width: 40rem;
+}
+
+.brand-content {
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+@media screen and (min-width: 576px) {
+  .brand-content {
+    width: 70%;
+    font-size: 1.25rem;
+    margin: 4rem 0;
+  }
+}
+

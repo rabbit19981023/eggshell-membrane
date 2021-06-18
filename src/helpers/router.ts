@@ -1,6 +1,5 @@
 import AbstractView from '../pages/AbstractView.js'
 import Home from '../pages/home.js'
-import Brand from '../pages/brand.js'
 import Contact from '../pages/contact.js'
 
 import { activeLink } from './activeLink.js'
@@ -16,9 +15,12 @@ const navigate: EventListener = function (event: Event) {
     // prevent page redirect
     event.preventDefault()
 
-    const url = target.href
-    window.history.pushState(null, 'View Content Changed!', url)
+    const updateHistory = function () {
+      const url = target.href
+      window.history.pushState(null, 'View Content Changed!', url)
+    }
 
+    updateHistory()
     router(event)
   }
 }
@@ -34,7 +36,7 @@ interface CachedView {
 }
 
 interface CachedViews {
-  [ viewName: string ]: CachedView
+  [viewName: string]: CachedView
 }
 
 interface Route {
@@ -42,31 +44,35 @@ interface Route {
   view: AbstractView
 }
 
-const cachedViews: CachedViews = { } as CachedViews
+const cachedViews: CachedViews = {} as CachedViews
 const router: EventListener = async function (event) {
   // Routes Context
   const routes: Route[] = [
     { path: '/', view: new Home('home') },
-    { path: '/brand', view: new Brand('brand') },
     { path: '/contact', view: new Contact('contact') }
   ]
 
   const path = window.location.pathname
   try {
-    const route = routes.find(route => route.path === path) as Route
+    const view = (routes.find(route => route.path === path) as Route).view
 
-    let cachedView: CachedView = cachedViews[route.view.name]
-    if (!cachedView) {
-      cachedView = { } as CachedView 
-      cachedView.title = route.view.getTitle()
-      cachedView.content = await route.view.getContent()
+    const render = async function () {
+      let cachedView: CachedView = cachedViews[view.name]
 
-      cachedViews[route.view.name] = cachedView
+      if (!cachedView) {
+        cachedView = {} as CachedView
+        cachedView.title = view.getTitle()
+        cachedView.content = await view.getContent()
+
+        cachedViews[view.name] = cachedView
+      }
+
+      document.title = cachedView.title
+      content.innerHTML = cachedView.content
     }
 
-    document.title = cachedView.title
-    content.innerHTML = cachedView.content
-  } catch (err) {}
+    render()
+  } catch (err) { }
 
   activeLink(path)
   toggleStore(event)

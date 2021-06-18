@@ -1,0 +1,21 @@
+<div id="brand">
+  <h1 class="brand-title"></h1>
+
+  <img alt="brand-img-1" class="brand-img brand-img-1">
+
+  <div class="brand-content"></div>
+
+  <img alt="brand-img-2" class="brand-img brand-img-2">
+</div>
+
+<img
+    src = x
+    alt = "build-brand"
+    style = "display: none;"
+    onerror = "
+      const script = document.createElement('script')
+      script.src = './js/helpers/buildBrand.js'
+      document.body.appendChild(script)
+      script.remove()
+    "
+>
