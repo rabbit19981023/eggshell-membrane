@@ -6,14 +6,14 @@ const toggleStore = function (event: Event) {
   try {
     /** View Link Event Triggered **/
     if (target.matches('.data-link')) {
-      content.style.visibility = 'visible'
+      content.style.display = 'block'
       store.style.visibility = 'hidden'
       return
     }
 
     if (target.matches('.store-link')) {
       document.title = '線上選購 | 膜力蛋'
-      content.style.visibility = 'hidden'
+      content.style.display = 'none'
       store.style.visibility = 'visible'
       return
     }
@@ -21,12 +21,12 @@ const toggleStore = function (event: Event) {
     /** Window Event Triggered **/
     if (window.location.pathname === '/store') {
       document.title = '線上選購 | 膜力蛋'
-      content.style.visibility = 'hidden'
+      content.style.display = 'none'
       store.style.visibility = 'visible'
       return
     }
 
-    content.style.visibility = 'visible'
+    content.style.display = 'block'
     store.style.visibility = 'hidden'
   }
 }
