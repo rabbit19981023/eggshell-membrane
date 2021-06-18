@@ -10,7 +10,7 @@ class Contact extends AbstractView {
 
   async getContent () {
     this.content = (`
-      <h2>聯絡我們</h2>
+      <img src="../img/contact.jpg" class="contact">
     `)
     return this.content
   }

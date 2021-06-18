@@ -209,11 +209,6 @@ body {
   }
 }
 
-.pros {
-  object-fit: cover;
-  max-width: 100%;
-}
-
 /** Brand Section **/
 #brand {
   display: flex;
@@ -250,3 +245,15 @@ body {
   }
 }
 
+
+
+
+.pros {
+  object-fit: cover;
+  max-width: 100%;
+}
+
+.contact {
+  object-fit: cover;
+  max-width: 100%;
+}
