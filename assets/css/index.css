@@ -95,6 +95,10 @@ body {
   margin-top: 1rem;
 }
 
+.compare h1 {
+  font-weight: bold;
+}
+
 .compare-card {
   display: flex;
   flex-flow: column;
@@ -120,26 +124,26 @@ body {
 .pig-protein {
   width: 12rem;
   height: 16rem;
-  background-color: #88C3B0;
+  background-color: #01828F;
 }
 
 .pig-protein .stars {
   width: 13.5rem;
   margin-left: -1.8rem;
-  background-color: #53A58A;
+  background-color: #006069;
 }
 
 .eggshell-protein {
   width: 16rem;
   height: 20rem;
-  background-color: #01828F;
+  background-color: #88C3B0;
 }
 
 .eggshell-protein .stars {
   width: 18rem;
   margin-left: -2rem;
   margin-top: 1rem;
-  background-color: #006069;
+  background-color: #53A58A;
 }
 
 .eggshell-protein .stars,
@@ -240,20 +244,52 @@ body {
 @media screen and (min-width: 576px) {
   .brand-content {
     width: 70%;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin: 4rem 0;
   }
 }
 
-
-
-
-.pros {
-  object-fit: cover;
-  max-width: 100%;
+/** Advantage Section **/
+.advantage {
+  padding: 2rem;
 }
 
-.contact {
-  object-fit: cover;
-  max-width: 100%;
+.second-title {
+  margin: 2.5rem 0;
+  color: #01828F;
+}
+
+.pros-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  margin: -0.5rem;
+}
+
+.pros {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  background-color: var(--bs-primary);
+  margin: 0.25rem;
+}
+
+.pros p {
+  font-size: 1.25rem;
+  color: #fff;
+}
+
+@media screen and (min-width: 576px) {
+  .pros {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .pros p {
+    font-size: 1.5rem;
+  }
 }

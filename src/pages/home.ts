@@ -17,14 +17,15 @@ class Home extends AbstractView {
 
     const Compare: Response = await fetch('compare.html')
     const compare: string = await Compare.text()
+    
+    const Advantage: Response = await fetch('advantage.html')
+    const advantage: string = await Advantage.text()
 
     this.content = (`
       ${carousel}
       ${secret}
       ${compare}
-
-      <img src="../img/pros.png" class="pros">
-      <hr>
+      ${advantage}
     `)
     return this.content
   }
