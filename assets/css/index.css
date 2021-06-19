@@ -319,7 +319,7 @@ body {
 }
 
 .contact-form .row {
-  margin: 2rem 0;
+  margin: 1.25rem 0;
 }
 
 .contact-form .row > * {
@@ -328,6 +328,7 @@ body {
 }
 
 .contact-form [type="submit"] {
+  font-size: 1.25rem;
   margin-bottom: 2rem;
 }
 
@@ -348,5 +349,9 @@ body {
 
   .contact-right {
     order: 2;
+  }
+
+  .contact-form .row {
+    margin: 2rem 0;
   }
 }
