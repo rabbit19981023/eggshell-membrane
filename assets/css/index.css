@@ -250,6 +250,10 @@ body {
 }
 
 /** Advantage Section **/
+.contact {
+  padding: 1rem;
+}
+
 .advantage {
   padding: 2rem;
 }
@@ -291,5 +295,26 @@ body {
 
   .pros p {
     font-size: 1.5rem;
+  }
+}
+
+/** Contact Section **/
+.contact h1 {
+  margin: 2rem 0;
+}
+
+.contact img {
+  object-fit: cover;
+  width: 30rem;
+  max-width: 100%;
+}
+
+.contact-left {
+  text-align: center;
+}
+
+@media screen and (min-width: 576px) {
+  .contact-left {
+    font-size: 1.25rem;
   }
 }

@@ -9,8 +9,11 @@ class Contact extends AbstractView {
   }
 
   async getContent () {
+    const Contact: Response = await fetch('contact-us.html')
+    const contact: string = await Contact.text()
+
     this.content = (`
-      <h2>聯絡我們</h2>
+      ${contact}
     `)
     return this.content
   }
