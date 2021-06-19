@@ -311,10 +311,42 @@ body {
 
 .contact-left {
   text-align: center;
+  order: 2;
+}
+
+.contact-right {
+  order: 1;
+}
+
+.contact-form .row {
+  margin: 2rem 0;
+}
+
+.contact-form .row > * {
+  flex-grow: 1;
+  margin: 0 1rem;
+}
+
+.contact-form [type="submit"] {
+  margin-bottom: 2rem;
 }
 
 @media screen and (min-width: 576px) {
   .contact-left {
     font-size: 1.25rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .contact h1 {
+    margin-bottom: 5rem;
+  }
+
+  .contact-left {
+    order: 1;
+  }
+
+  .contact-right {
+    order: 2;
   }
 }
