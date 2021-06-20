@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-netlify": "npm install typescript && npm run build-frontend && npm run build-aws-functions",
+    "build-netlify": "npm install && npm install typescript && npm run build-frontend && npm run build-aws-functions",
     "build-frontend": "tsc --project tsconfig-frontend.json",
     "build-aws-functions": "tsc --project tsconfig-aws-functions.json",
     "build-frontend-dev": "npm run build-frontend -- --watch",
