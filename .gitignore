@@ -3,4 +3,5 @@ node_modules
 netlify.toml
 
 assets/js
+netlify
 yarn-error.log
