@@ -2,6 +2,8 @@ import AbstractView from '../pages/AbstractView.js'
 import Home from '../pages/home.js'
 import Brand from '../pages/brand.js'
 import Contact from '../pages/contact.js'
+import Login from '../pages/login.js'
+import Register from '../pages/register.js'
 
 import { activeLink } from './activeLink.js'
 import { toggleStore } from './toggle-store.js'
@@ -51,7 +53,9 @@ const router: EventListener = async function (event) {
   const routes: Route[] = [
     { path: '/', view: new Home('home') },
     { path: '/brand', view: new Brand('brand') },
-    { path: '/contact', view: new Contact('contact') }
+    { path: '/contact', view: new Contact('contact') },
+    { path: '/login', view: new Login('login') },
+    { path: '/sign-up', view: new Register('register') }
   ]
 
   const path = window.location.pathname
