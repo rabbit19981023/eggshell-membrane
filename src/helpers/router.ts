@@ -62,7 +62,9 @@ const router: EventListener = async function (event): Promise<void> {
       if (!cachedView) {
         cachedView = {} as CachedView
         cachedView.title = currentRoute.view.getTitle()
+        console.log(10)
         cachedView.view = await currentRoute.view.getView()
+        console.log(11)
 
         cachedViews[identifier] = cachedView
       }
