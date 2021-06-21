@@ -53,21 +53,31 @@ const routes: Route[] = [
 const cachedViews: CachedViews = {} as CachedViews
 
 const router: EventListener = function (event): void {
-  const render = function ():void {
+  const render = function (): void {
     const getView = function (): CachedView {
-      const currentRoute: Route = routes.find(route => route.path === window.location.pathname) as Route
-      const identifier: string = currentRoute.view.identifier
-      let cachedView: CachedView = cachedViews[identifier]
+      try {
+        // View-link
+        // Because of `Ecwid` is not in our Routes !!
+        // We will never use Ecwid again !!
+        const currentRoute: Route = routes.find(route => route.path === window.location.pathname) as Route
+        const identifier: string = currentRoute.view.identifier
+        let cachedView: CachedView = cachedViews[identifier]
 
-      if (!cachedView) {
-        cachedView = { } as CachedView
-        cachedView.title = currentRoute.view.getTitle()
-        cachedView.view = currentRoute.view.getView()
+        if (!cachedView) {
+          cachedView = { } as CachedView
+          cachedView.title = currentRoute.view.getTitle()
+          cachedView.view = currentRoute.view.getView()
 
-        cachedViews[identifier] = cachedView
+          cachedViews[identifier] = cachedView
+        }
+
+        return cachedView
+      } catch (err) {
+        // Store-link
+        // Because of `Ecwid` is not in our Routes !!
+        // We will never use Ecwid again !!
+        toggleStore(event)
       }
-
-      return cachedView
     }
 
     const renderView = function (title: CachedView["title"], view: CachedView["view"]): void {
