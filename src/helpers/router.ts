@@ -14,25 +14,21 @@ const content: HTMLDivElement = document.querySelector('.content') as HTMLDivEle
 /** Change the URL without page-refresh **/
 const navigate: EventListener = function (event: Event) {
   const target: HTMLLinkElement = event.target as HTMLLinkElement
-  if (target.matches('.nav-link')) {
-    // prevent page reload
+  
+  const preventReloadPage = function () {
     event.preventDefault()
-
-    const updateHistory = function () {
-      const url = target.href
-      window.history.pushState(null, 'View Content Changed!', url)
-    }
-
-    updateHistory()
-    router(event)
   }
+
+  const updateHistory = function () {
+    const url = target.href
+    window.history.pushState(null, 'View Content Changed!', url)
+  }
+
+  preventReloadPage()
+  updateHistory()
+  router(event)
 }
 
-/** Routes Mapping
- * 
- * EveryTime the URL changed, re-fetch the view content
- * 
- **/
 interface CachedView {
   title: string,
   content: string
@@ -47,17 +43,19 @@ interface Route {
   view: AbstractView
 }
 
+// Cache Memory
 const cachedViews: CachedViews = {} as CachedViews
-const router: EventListener = async function (event) {
-  // Routes Context
-  const routes: Route[] = [
-    { path: '/', view: new Home('home') },
-    { path: '/brand', view: new Brand('brand') },
-    { path: '/contact', view: new Contact('contact') },
-    { path: '/login', view: new Login('login') },
-    { path: '/sign-up', view: new Register('register') }
-  ]
 
+// Routes Context
+const routes: Route[] = [
+  { path: '/', view: new Home('home') },
+  { path: '/brand', view: new Brand('brand') },
+  { path: '/contact', view: new Contact('contact') },
+  { path: '/login', view: new Login('login') },
+  { path: '/sign-up', view: new Register('register') }
+]
+
+const router: EventListener = async function (event) {
   const path = window.location.pathname
   try {
     const view = (routes.find(route => route.path === path) as Route).view
@@ -85,20 +83,24 @@ const router: EventListener = async function (event) {
 }
 
 const registerRouting: EventListener = function () {
+  // Targeting <img> Link
   const homeLink: HTMLImageElement = document.querySelector('.main-brand') as HTMLImageElement
   homeLink.addEventListener('click', (event) => {
-    // prevent page reload
-    event.preventDefault()
+    const preventReloadPage = function () {
+      event.preventDefault()
+    }
 
     const updateHistory = function () {
       const path = '/'
       window.history.pushState(null, 'View Content Changed!', path)
     }
 
+    preventReloadPage()
     updateHistory()
     router(event)
   })
 
+  // Targeting <a> Link
   const navLinks: NodeListOf<HTMLLinkElement> = document.querySelectorAll('.nav-link') as NodeListOf<HTMLLinkElement>
   navLinks.forEach(navLink => {
     navLink.addEventListener('click', navigate)
