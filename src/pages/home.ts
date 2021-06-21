@@ -1,4 +1,10 @@
 import AbstractView from './AbstractView.js'
+
+import { Carousel } from '../components/carousel.js'
+import { Secret } from '../components/secret.js'
+import { Compare } from '../components/compare.js'
+import { Advantage } from '../components/advantage.js'
+
 import { buildCarousels } from '../helpers/buildCarousels.js'
 import { buildEggshellSecret } from '../helpers/buildEggshellSecret.js'
 
@@ -10,25 +16,13 @@ class Home extends AbstractView {
     this.setTitle('廢棄循環，再造商機 | 膜力蛋')
   }
 
-  private async build () {
-    const Carousel: Response = await fetch('carousel.html')
-    const carousel: string = await Carousel.text()
-
-    const Secret: Response = await fetch('secret.html')
-    const secret: string = await Secret.text()
-
-    const Compare: Response = await fetch('compare.html')
-    const compare: string = await Compare.text()
-    
-    const Advantage: Response = await fetch('advantage.html')
-    const advantage: string = await Advantage.text()
-
+  private build () {
     const container: HTMLDivElement = document.createElement('div')
     const template = `
-      ${carousel}
-      ${secret}
-      ${compare}
-      ${advantage}
+      ${Carousel}
+      ${Secret}
+      ${Compare}
+      ${Advantage}
     `
     container.innerHTML = template
 
@@ -37,9 +31,8 @@ class Home extends AbstractView {
     this.content = container
   }
 
-  async getView () {
+  getView () {
     this.build()
-    console.log(`1: ${this.content}`)
     return this.content
   }
 }

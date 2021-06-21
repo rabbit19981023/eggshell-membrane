@@ -1,5 +1,7 @@
 import AbstractView from './AbstractView.js'
 
+import { ContactPage } from '../components/contact-page.js'
+
 class Contact extends AbstractView {
   constructor (identifier: string) {
     // Call Parent Class' Constructor to Init Properties
@@ -8,21 +10,18 @@ class Contact extends AbstractView {
     this.setTitle('聯絡我們 | 膜力蛋')
   }
 
-  async build () {
-    const Contact: Response = await fetch('contact-us.html')
-    const contact: string = await Contact.text()
-
+  build () {
     const container: HTMLDivElement = document.createElement('div')
     const template: string = `
-      ${contact}
+      ${ContactPage}
     `
 
     container.innerHTML = template
     this.content = container
   }
 
-  async getView () {
-    await this.build()
+  getView () {
+    this.build()
     return this.content
   }
 }

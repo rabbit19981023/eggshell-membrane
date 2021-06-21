@@ -52,18 +52,17 @@ const routes: Route[] = [
 // Cache Memory
 const cachedViews: CachedViews = {} as CachedViews
 
-const router: EventListener = async function (event): Promise<void> {
-  const render = async function (): Promise<void> {
-    const getView = async function (): Promise<CachedView> {
+const router: EventListener = function (event): void {
+  const render = function ():void {
+    const getView = function (): CachedView {
       const currentRoute: Route = routes.find(route => route.path === window.location.pathname) as Route
       const identifier: string = currentRoute.view.identifier
       let cachedView: CachedView = cachedViews[identifier]
 
       if (!cachedView) {
-        cachedView = {} as CachedView
+        cachedView = { } as CachedView
         cachedView.title = currentRoute.view.getTitle()
-        cachedView.view = await currentRoute.view.getView()
-        console.log(`2: ${cachedView.view}`)
+        cachedView.view = currentRoute.view.getView()
 
         cachedViews[identifier] = cachedView
       }
@@ -92,10 +91,9 @@ const router: EventListener = async function (event): Promise<void> {
       setTitle(title)
     }
 
-    const cachedView: CachedView = await getView()
+    const cachedView: CachedView = getView()
     const title: string = cachedView.title
     const view: HTMLElement = cachedView.view
-    console.log(`3: ${cachedView.view}`)
     
     renderView(title, view)
   }

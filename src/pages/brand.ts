@@ -1,4 +1,7 @@
 import AbstractView from './AbstractView.js'
+
+import { BrandPage } from '../components/brand-page.js'
+
 import { buildBrand } from '../helpers/buildBrand.js'
 
 class Brand extends AbstractView {
@@ -9,13 +12,10 @@ class Brand extends AbstractView {
     this.setTitle('品牌理念 | 膜力蛋')
   }
 
-  private async build () {
-    const Brand: Response = await fetch('brand-appeal.html')
-    const brand: string = await Brand.text()
-
+  private build () {
     const container: HTMLDivElement = document.createElement('div')
     const template: string = `
-      ${brand}
+      ${BrandPage}
     `
     container.innerHTML = template
 
@@ -23,8 +23,8 @@ class Brand extends AbstractView {
     this.content = container
   }
 
-  async getView () {
-    await this.build()
+  getView () {
+    this.build()
     return this.content
   }
 }

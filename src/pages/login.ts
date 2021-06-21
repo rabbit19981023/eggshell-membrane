@@ -1,5 +1,7 @@
 import AbstractView from './AbstractView.js'
 
+import { LoginPage } from '../components/login-page.js'
+
 class Login extends AbstractView {
   constructor (identifier: string) {
     super()
@@ -7,21 +9,18 @@ class Login extends AbstractView {
     this.setTitle('登入 | 膜力蛋')
   }
 
-  async build () {
-    const Login: Response = await fetch('login-page.html')
-    const login: string = await Login.text()
-
+  build () {
     const container: HTMLDivElement = document.createElement('div')
     const template: string = `
-      ${login}
+      ${LoginPage}
     `
 
     container.innerHTML = template
     this.content = container
   }
 
-  async getView () {
-    await this.build()
+  getView () {
+    this.build()
     return this.content
   }
 }
