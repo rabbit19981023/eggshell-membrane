@@ -32,7 +32,7 @@ interface CachedView {
 }
 
 interface CachedViews {
-  [ identifier: string ]: CachedView
+  [identifier: string]: CachedView
 }
 
 interface Route {
@@ -54,30 +54,20 @@ const cachedViews: CachedViews = {} as CachedViews
 
 const router: EventListener = function (event): void {
   const render = function (): void {
-    const getView = function (): CachedView | void {
-      try {
-        // View-link
-        // Because of `Ecwid` is not in our Routes !!
-        // We will never use Ecwid again !!
-        const currentRoute: Route = routes.find(route => route.path === window.location.pathname) as Route
-        const identifier: string = currentRoute.view.identifier
-        let cachedView: CachedView = cachedViews[identifier]
+    const getView = function (): CachedView {
+      const currentRoute: Route = routes.find(route => route.path === window.location.pathname) as Route
+      const identifier: string = currentRoute.view.identifier
+      let cachedView: CachedView = cachedViews[identifier]
 
-        if (!cachedView) {
-          cachedView = { } as CachedView
-          cachedView.title = currentRoute.view.getTitle()
-          cachedView.view = currentRoute.view.getView()
+      if (!cachedView) {
+        cachedView = {} as CachedView
+        cachedView.title = currentRoute.view.getTitle()
+        cachedView.view = currentRoute.view.getView()
 
-          cachedViews[identifier] = cachedView
-        }
-
-        return cachedView
-      } catch (err) {
-        // Store-link
-        // Because of `Ecwid` is not in our Routes !!
-        // We will never use Ecwid again !!
-        toggleStore(event)
+        cachedViews[identifier] = cachedView
       }
+
+      return cachedView
     }
 
     const renderView = function (title: CachedView["title"], view: CachedView["view"]): void {
@@ -101,11 +91,13 @@ const router: EventListener = function (event): void {
       setTitle(title)
     }
 
-    const cachedView: CachedView = getView() as CachedView
-    const title: string = cachedView.title
-    const view: HTMLElement = cachedView.view
-    
-    renderView(title, view)
+    try {
+      const cachedView: CachedView = getView()
+      const title: string = cachedView.title
+      const view: HTMLElement = cachedView.view
+
+      renderView(title, view)
+    } catch (err) { }
   }
 
   render()
