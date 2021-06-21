@@ -6,18 +6,15 @@ interface Carousel {
   }
 }
 
-let cachedCarousels: Carousel[]
 const buildCarousels = async function (container: HTMLDivElement): Promise<void> {
   const indicators: HTMLDivElement = container.querySelector('.carousel-indicators') as HTMLDivElement
   const inner: HTMLDivElement = container.querySelector('.carousel-inner') as HTMLDivElement
   let count: number = 0
 
-  if (!cachedCarousels) {
-    const response: Response = await fetch('/.netlify/functions/carousels')
-    cachedCarousels = await response.json()
-  }
+  const response: Response = await fetch('/.netlify/functions/carousels')
+  const carousels: Carousel[] = await response.json()
 
-  cachedCarousels.forEach(carousel => {
+  carousels.forEach(carousel => {
     const title = carousel.title
     const description = carousel.description
     const imageUrl = carousel.image.url
