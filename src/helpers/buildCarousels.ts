@@ -7,9 +7,9 @@ interface Carousel {
 }
 
 let cachedCarousels: Carousel[]
-const buildCarousels = async function (): Promise<void> {
-  const indicators: HTMLDivElement = document.querySelector('.carousel-indicators') as HTMLDivElement
-  const container: HTMLDivElement = document.querySelector('.carousel-inner') as HTMLDivElement
+const buildCarousels = async function (container: HTMLDivElement): Promise<void> {
+  const indicators: HTMLDivElement = container.querySelector('.carousel-indicators') as HTMLDivElement
+  const inner: HTMLDivElement = container.querySelector('.carousel-inner') as HTMLDivElement
   let count: number = 0
 
   if (!cachedCarousels) {
@@ -25,10 +25,9 @@ const buildCarousels = async function (): Promise<void> {
     indicators.innerHTML += (`
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="${count}" aria-label="Slide ${count}"></button>
     `)
-    container.innerHTML += (`
+    inner.innerHTML += (`
       <div class="carousel-item">
         <img src="${imageUrl}">
-
         <div class="container">
           <div class="carousel-caption">
             <h1>${title}</h1>
@@ -42,10 +41,10 @@ const buildCarousels = async function (): Promise<void> {
   })
 
   const firstCarouselBtn: HTMLButtonElement = indicators.querySelector('button') as HTMLButtonElement
-  const firstCarouselItem: HTMLDivElement = container.querySelector('.carousel-item') as HTMLDivElement
+  const firstCarouselItem: HTMLDivElement = inner.querySelector('.carousel-item') as HTMLDivElement
   firstCarouselBtn.classList.add('active')
   firstCarouselBtn.setAttribute('aria-current', 'true')
   firstCarouselItem.classList.add('active')
 }
 
-buildCarousels()
+export { buildCarousels }

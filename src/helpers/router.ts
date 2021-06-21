@@ -8,19 +8,16 @@ import Register from '../pages/register.js'
 import { activeLink } from './activeLink.js'
 import { toggleStore } from './toggle-store.js'
 
-/** View Content Div **/
-const content: HTMLDivElement = document.querySelector('.content') as HTMLDivElement
-
-/** Change the URL without page-refresh **/
+/** Switch Page without page-refresh **/
 const navigate: EventListener = function (event: Event) {
   const target: HTMLLinkElement = event.target as HTMLLinkElement
-  
+
   const preventReloadPage = function () {
     event.preventDefault()
   }
 
   const updateHistory = function () {
-    const url = target.href
+    const url: string = target.href || '/' // a.nav-link || img.main-brand
     window.history.pushState(null, 'View Content Changed!', url)
   }
 
@@ -31,20 +28,17 @@ const navigate: EventListener = function (event: Event) {
 
 interface CachedView {
   title: string,
-  content: string
+  view: HTMLElement
 }
 
 interface CachedViews {
-  [viewName: string]: CachedView
+  [ identifier: string ]: CachedView
 }
 
 interface Route {
   path: string,
   view: AbstractView
 }
-
-// Cache Memory
-const cachedViews: CachedViews = {} as CachedViews
 
 // Routes Context
 const routes: Route[] = [
@@ -55,50 +49,64 @@ const routes: Route[] = [
   { path: '/sign-up', view: new Register('register') }
 ]
 
-const router: EventListener = async function (event) {
-  const path = window.location.pathname
-  try {
-    const view = (routes.find(route => route.path === path) as Route).view
+// Cache Memory
+const cachedViews: CachedViews = {} as CachedViews
 
-    const render = async function () {
-      let cachedView: CachedView = cachedViews[view.name]
+const router: EventListener = async function (event): Promise<void> {
+  const render = async function (): Promise<void> {
+    const getView = async function (): Promise<CachedView> {
+      const currentRoute: Route = routes.find(route => route.path === window.location.pathname) as Route
+      const identifier: string = currentRoute.view.identifier
+      let cachedView: CachedView = cachedViews[identifier]
 
       if (!cachedView) {
         cachedView = {} as CachedView
-        cachedView.title = view.getTitle()
-        cachedView.content = await view.getContent()
+        cachedView.title = currentRoute.view.getTitle()
+        cachedView.view = await currentRoute.view.getView()
 
-        cachedViews[view.name] = cachedView
+        cachedViews[identifier] = cachedView
       }
 
-      document.title = cachedView.title
-      content.innerHTML = cachedView.content
+      return cachedView
     }
 
-    render()
-  } catch (err) { }
+    const renderView = function (title: CachedView["title"], view: CachedView["view"]): void {
+      const emptyContainer = function (container: HTMLDivElement): void {
+        while (container.firstChild) {
+          container.removeChild(container.firstChild)
+        }
+      }
 
-  activeLink(path)
+      const addViewToContainer = function (container: HTMLDivElement, view: CachedView["view"]): void {
+        container.appendChild(view)
+      }
+
+      const setTitle = function (title: CachedView["title"]): void {
+        document.title = title
+      }
+
+      const viewContainer: HTMLDivElement = document.querySelector('.content') as HTMLDivElement
+      emptyContainer(viewContainer)
+      addViewToContainer(viewContainer, view)
+      setTitle(title)
+    }
+
+    const cachedView: CachedView = await getView()
+    const title: string = cachedView.title
+    const view: HTMLElement = cachedView.view
+    
+    renderView(title, view)
+  }
+
+  render()
+  activeLink(window.location.pathname)
   toggleStore(event)
 }
 
 const registerRouting: EventListener = function () {
   // Targeting <img> Link
   const homeLink: HTMLImageElement = document.querySelector('.main-brand') as HTMLImageElement
-  homeLink.addEventListener('click', (event) => {
-    const preventReloadPage = function () {
-      event.preventDefault()
-    }
-
-    const updateHistory = function () {
-      const path = '/'
-      window.history.pushState(null, 'View Content Changed!', path)
-    }
-
-    preventReloadPage()
-    updateHistory()
-    router(event)
-  })
+  homeLink.addEventListener('click', navigate)
 
   // Targeting <a> Link
   const navLinks: NodeListOf<HTMLLinkElement> = document.querySelectorAll('.nav-link') as NodeListOf<HTMLLinkElement>

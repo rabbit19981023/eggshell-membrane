@@ -1,20 +1,28 @@
 import AbstractView from './AbstractView.js'
 
 class Contact extends AbstractView {
-  constructor (name: string) {
+  constructor (identifier: string) {
     // Call Parent Class' Constructor to Init Properties
     super()
-    this.name = name
+    this.identifier = identifier
     this.setTitle('聯絡我們 | 膜力蛋')
   }
 
-  async getContent () {
+  async build () {
     const Contact: Response = await fetch('contact-us.html')
     const contact: string = await Contact.text()
 
-    this.content = (`
+    const container: HTMLDivElement = document.createElement('div')
+    const template: string = `
       ${contact}
-    `)
+    `
+
+    container.innerHTML = template
+    this.content = container
+  }
+
+  async getView () {
+    await this.build()
     return this.content
   }
 }

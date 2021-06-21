@@ -1,12 +1,12 @@
 class AbstractView {
-  public name: string
+  public identifier: string
   public title: string
-  public content: string
+  public content: HTMLElement
 
   constructor () {
-    this.name = ''
+    this.identifier = ''
     this.title = ''
-    this.content = ''
+    this.content = document.createElement('div')
   }
 
   setTitle (title: string) {
@@ -17,7 +17,7 @@ class AbstractView {
     return this.title
   }
 
-  async getContent () {
+  async getView () {
     return this.content
   }
 }

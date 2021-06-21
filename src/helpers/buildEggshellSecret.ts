@@ -12,11 +12,11 @@ interface EggshellSecret {
 }
 
 let cachedEggshellSecret: EggshellSecret[]
-const buildEggshellSecret = async function (): Promise<void> {
-  const title: HTMLHeadingElement = document.querySelector('.eggshell-secret-title') as HTMLHeadingElement
-  const field1: HTMLDivElement = document.querySelector('.field-1') as HTMLDivElement
-  const field2: HTMLDivElement = document.querySelector('.field-2') as HTMLDivElement
-  const image: HTMLImageElement = document.querySelector('.eggshell-secret-img') as HTMLImageElement
+const buildEggshellSecret = async function (container: HTMLDivElement): Promise<void> {
+  const title: HTMLHeadingElement = container.querySelector('.eggshell-secret-title') as HTMLHeadingElement
+  const field1: HTMLDivElement = container.querySelector('.field-1') as HTMLDivElement
+  const field2: HTMLDivElement = container.querySelector('.field-2') as HTMLDivElement
+  const image: HTMLImageElement = container.querySelector('.eggshell-secret-img') as HTMLImageElement
 
   if (!cachedEggshellSecret) {
     const response: Response = await fetch('/.netlify/functions/eggshell-secret')
@@ -29,4 +29,4 @@ const buildEggshellSecret = async function (): Promise<void> {
   image.src = cachedEggshellSecret[0]["image"].url
 }
 
-buildEggshellSecret()
+export { buildEggshellSecret }
