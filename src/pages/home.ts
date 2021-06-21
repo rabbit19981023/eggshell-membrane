@@ -32,8 +32,11 @@ class Home extends AbstractView {
     `
     container.innerHTML = template
 
+    console.log(1)
     buildCarousels(container)
+    console.log(2)
     buildEggshellSecret(container)
+    console.log(3)
     this.content = container
   }
 
