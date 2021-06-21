@@ -54,7 +54,7 @@ const cachedViews: CachedViews = {} as CachedViews
 
 const router: EventListener = function (event): void {
   const render = function (): void {
-    const getView = function (): CachedView {
+    const getView = function (): CachedView | void {
       try {
         // View-link
         // Because of `Ecwid` is not in our Routes !!
@@ -101,7 +101,7 @@ const router: EventListener = function (event): void {
       setTitle(title)
     }
 
-    const cachedView: CachedView = getView()
+    const cachedView: CachedView = getView() as CachedView
     const title: string = cachedView.title
     const view: HTMLElement = cachedView.view
     
