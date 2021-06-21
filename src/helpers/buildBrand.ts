@@ -8,7 +8,7 @@ interface Brand {
 
 const buildBrand = async function (container: HTMLDivElement) {
   const response: Response = await fetch('/.netlify/functions/brands')
-  const brand: Brand = await response.json()
+  const brand: Brand[] = await response.json()
 
   const h1: HTMLHeadingElement = container.querySelector('.brand-title') as HTMLHeadingElement
   const img_1: HTMLImageElement = container.querySelector('.brand-img-1') as HTMLImageElement
