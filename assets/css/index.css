@@ -11,6 +11,7 @@ body {
 #my-store-61706777 {
   position: absolute;
   top: 1.5rem;
+  overflow-y: hidden;
 }
 
 .content {
