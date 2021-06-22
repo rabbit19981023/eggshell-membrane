@@ -1,6 +1,5 @@
 import AbstractView from './AbstractView.js'
 
-console.log('home load start')
 import { Carousel } from '../components/carousel.js'
 import { Secret } from '../components/secret.js'
 import { Compare } from '../components/compare.js'
@@ -8,7 +7,6 @@ import { Advantage } from '../components/advantage.js'
 
 import { buildCarousels } from '../helpers/buildCarousels.js'
 import { buildEggshellSecret } from '../helpers/buildEggshellSecret.js'
-console.log('home load done')
 
 class Home extends AbstractView {
   constructor (identifier: string) {
@@ -19,7 +17,6 @@ class Home extends AbstractView {
   }
 
   private build () {
-    console.log('home build start')
     const container: HTMLDivElement = document.createElement('div')
     const template = `
       ${Carousel}
@@ -32,7 +29,6 @@ class Home extends AbstractView {
     buildCarousels(container)
     buildEggshellSecret(container)
     this.content = container
-    console.log('home build done')
   }
 
   getView () {
