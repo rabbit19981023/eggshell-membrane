@@ -71,6 +71,10 @@ const router: EventListener = function (event): void {
     }
 
     const renderView = function (title: CachedView["title"], view: CachedView["view"]): void {
+      const setTitle = function (title: CachedView["title"]): void {
+        document.title = title
+      }
+
       const emptyContainer = function (container: HTMLDivElement): void {
         while (container.firstChild) {
           container.removeChild(container.firstChild)
@@ -81,14 +85,10 @@ const router: EventListener = function (event): void {
         container.appendChild(view)
       }
 
-      const setTitle = function (title: CachedView["title"]): void {
-        document.title = title
-      }
-
       const viewContainer: HTMLDivElement = document.querySelector('.content') as HTMLDivElement
+      setTitle(title)
       emptyContainer(viewContainer)
       addViewToContainer(viewContainer, view)
-      setTitle(title)
     }
 
     try {
@@ -101,7 +101,6 @@ const router: EventListener = function (event): void {
   }
 
   render()
-  console.log('render done')
   activeLink(window.location.pathname)
   toggleStore(event)
 }
