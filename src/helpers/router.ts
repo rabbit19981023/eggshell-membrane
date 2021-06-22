@@ -1,9 +1,11 @@
+console.log('all start')
 import AbstractView from '../pages/AbstractView.js'
 import Home from '../pages/home.js'
 import Brand from '../pages/brand.js'
 import Contact from '../pages/contact.js'
 import Login from '../pages/login.js'
 import Register from '../pages/register.js'
+console.log('all pages load')
 
 import { activeLink } from './activeLink.js'
 import { toggleStore } from './toggle-store.js'
@@ -62,9 +64,7 @@ const router: EventListener = function (event): void {
       if (!cachedView) {
         cachedView = {} as CachedView
         cachedView.title = currentRoute.view.getTitle()
-        console.log('start')
         cachedView.view = currentRoute.view.getView()
-        console.log('done')
 
         cachedViews[identifier] = cachedView
       }
@@ -94,7 +94,9 @@ const router: EventListener = function (event): void {
     }
 
     try {
+      console.log('getview start')
       const cachedView: CachedView = getView()
+      console.log('getview done')
       const title: string = cachedView.title
       const view: HTMLElement = cachedView.view
 
@@ -103,6 +105,7 @@ const router: EventListener = function (event): void {
   }
 
   render()
+  console.log('render done')
   activeLink(window.location.pathname)
   toggleStore(event)
 }
@@ -122,3 +125,5 @@ const registerRouting: EventListener = function () {
 window.addEventListener('DOMContentLoaded', registerRouting)
 window.addEventListener('DOMContentLoaded', router)
 window.addEventListener('popstate', router)
+
+console.log('all done')
