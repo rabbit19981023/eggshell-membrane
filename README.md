@@ -1,13 +1,12 @@
 ## Usage
 Before you open the website, you have to do things below:
 
-1. check if `python`, `nodejs`, `typescript` are already installed in your local machine. If not:
+1. check if `python`, `nodejs` are already installed in your local machine. If not:
 - go to official [Python](https://www.python.org/) download and install it.
 - go to official [Nodejs](https://nodejs.org/en/) download and install it.
-- run `npm install -g typescript` in global, or `npm install typescript --save-dev` in local for development.
 
 2. compile all .ts files to .js
-- run `cd /path/to/this-project-directory` and `npm run build-frontend && npm run build-aws-functions`
+- run `cd /path/to/this-project-directory` and `npm run build-netlify`
 
 3. run a simple Server in your local machine
 - run `cd /path/to/this-project-directory` and `python -m http.server 8000`
