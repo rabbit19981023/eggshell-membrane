@@ -24,10 +24,16 @@ class Home extends AbstractView {
       ${Compare}
       ${Advantage}
     `
+    console.log(1)
     container.innerHTML = template
+    console.log(10)
 
+    console.log(2)
     buildCarousels(container)
+    console.log(20)
+    console.log(3)
     buildEggshellSecret(container)
+    console.log(30)
     this.content = container
   }
 

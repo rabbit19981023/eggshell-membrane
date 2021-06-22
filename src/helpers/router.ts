@@ -62,7 +62,9 @@ const router: EventListener = function (event): void {
       if (!cachedView) {
         cachedView = {} as CachedView
         cachedView.title = currentRoute.view.getTitle()
+        console.log('start')
         cachedView.view = currentRoute.view.getView()
+        console.log('done')
 
         cachedViews[identifier] = cachedView
       }
