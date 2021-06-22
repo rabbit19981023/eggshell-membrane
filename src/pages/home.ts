@@ -1,12 +1,12 @@
-import AbstractView from './AbstractView.js'
+import AbstractView from './AbstractView'
 
-import { Carousel } from '../components/carousel.js'
-import { Secret } from '../components/secret.js'
-import { Compare } from '../components/compare.js'
-import { Advantage } from '../components/advantage.js'
+import { Carousel } from '../components/carousel'
+import { Secret } from '../components/secret'
+import { Compare } from '../components/compare'
+import { Advantage } from '../components/advantage'
 
-import { buildCarousels } from '../helpers/buildCarousels.js'
-import { buildEggshellSecret } from '../helpers/buildEggshellSecret.js'
+import { buildCarousels } from '../helpers/buildCarousels'
+import { buildEggshellSecret } from '../helpers/buildEggshellSecret'
 
 class Home extends AbstractView {
   constructor (identifier: string) {

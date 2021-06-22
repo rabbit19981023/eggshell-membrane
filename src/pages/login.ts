@@ -1,6 +1,6 @@
-import AbstractView from './AbstractView.js'
+import AbstractView from './AbstractView'
 
-import { LoginPage } from '../components/login-page.js'
+import { LoginPage } from '../components/login-page'
 
 class Login extends AbstractView {
   constructor (identifier: string) {

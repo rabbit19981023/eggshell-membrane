@@ -1,6 +1,6 @@
-import AbstractView from './AbstractView.js'
+import AbstractView from './AbstractView'
 
-import { RegisterPage } from '../components/register-page.js'
+import { RegisterPage } from '../components/register-page'
 
 class Register extends AbstractView {
   constructor (identifier: string) {

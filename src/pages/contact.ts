@@ -1,6 +1,6 @@
-import AbstractView from './AbstractView.js'
+import AbstractView from './AbstractView'
 
-import { ContactPage } from '../components/contact-page.js'
+import { ContactPage } from '../components/contact-page'
 
 class Contact extends AbstractView {
   constructor (identifier: string) {

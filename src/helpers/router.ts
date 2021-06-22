@@ -1,12 +1,12 @@
-import AbstractView from '../pages/AbstractView.js'
-import Home from '../pages/home.js'
-import Brand from '../pages/brand.js'
-import Contact from '../pages/contact.js'
-import Login from '../pages/login.js'
-import Register from '../pages/register.js'
+import AbstractView from '../pages/AbstractView'
+import Home from '../pages/home'
+import Brand from '../pages/brand'
+import Contact from '../pages/contact'
+import Login from '../pages/login'
+import Register from '../pages/register'
 
-import { activeLink } from './activeLink.js'
-import { toggleStore } from './toggle-store.js'
+import { activeLink } from './activeLink'
+import { toggleStore } from './toggle-store'
 
 /** Switch Page without page-refresh **/
 const navigate: EventListener = function (event: Event) {

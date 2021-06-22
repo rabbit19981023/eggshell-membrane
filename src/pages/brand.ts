@@ -1,8 +1,8 @@
-import AbstractView from './AbstractView.js'
+import AbstractView from './AbstractView'
 
-import { BrandPage } from '../components/brand-page.js'
+import { BrandPage } from '../components/brand-page'
 
-import { buildBrand } from '../helpers/buildBrand.js'
+import { buildBrand } from '../helpers/buildBrand'
 
 class Brand extends AbstractView {
   constructor (identifier: string) {
