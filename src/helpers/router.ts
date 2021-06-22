@@ -101,6 +101,7 @@ const router: EventListener = function (event): void {
   }
 
   render()
+  console.log('render done')
   activeLink(window.location.pathname)
   toggleStore(event)
 }
