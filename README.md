@@ -1,20 +1,57 @@
-## Usage
-Before you open the website, you have to do things below:
+# eggshell-membrane
 
-1. check if `nodejs`, `http-server` are already installed in your local machine. If not:
-- go to official [Nodejs Website](https://nodejs.org/en/), download and install it.
-- run `npm install --global http-server` to install a simple but really powerful Http Server.
+This is a e-commerce website for my school-project.
 
-2. using `tsc` to compile all .ts files to .js, and using `webpack` to bundle all js&css files into one file.
-- run `cd /path/to/this-project-directory` and `npm run build-netlify`
+## Technologies
 
-3. run a simple Server in your local machine
-- run `cd /path/to/this-project-directory` and `http-server --port 3000  `
+- Architecture : JAM-Stack (Serverless)
+- Language : Typescript
+- Frontend : Vanilla HTML/CSS/Javascript (using webpack to bundle all of them)
+- Backend : Netlify Serverless Function (Node.js)
+- Database : GraphCMS (GraphQL)
+- Deployment : Netlify
 
-4. open a browser with `localhost:3000`, it should be all things work!
-- Warning: you should not open `./assets/index.html` directly. We need `http://` to make sure all things working as expected, rather than `file:///`
+## Local Development
 
-Update 2021/06/27 : 
+1. install `netlify-cli` globally via npm:
 
-Something might not be showable, because we have a third-party service like `GraphCMS` to host our dynamic data. In view of security issues, we will not reveal API key to access DB. 
+```bash
+$ sudo npm install -g netlify-cli
+```
 
+2. setting Environment Variables via `netlify-cli`:
+
+```bash
+$ netlify env:set GRAPHQL_ENDPOINT <your-GraphCMS-token>
+```
+
+3. build the project:
+
+```bash
+$ npm run build-netlify
+```
+
+4. run the project via `netlify-cli`:
+
+```bash
+$ netlify dev
+◈ Netlify Dev ◈
+◈ Injected build settings env var: GRAPHQL_ENDPOINT
+◈ Ignored general context env var: LANG (defined in process)
+◈ Ignored general context env var: LANGUAGE (defined in process)
+◈ No app server detected. Using simple static server
+◈ Running static server from "eggshell-membrane/assets"
+◈ Loaded function brands.
+◈ Loaded function carousels.
+◈ Loaded function config.
+◈ Loaded function eggshell-secret.
+◈ Functions server is listening on 35787
+
+◈ Static server listening to 3999
+
+   ┌─────────────────────────────────────────────────┐
+   │                                                 │
+   │   ◈ Server now ready on http://localhost:8888   │
+   │                                                 │
+   └─────────────────────────────────────────────────┘
+```
