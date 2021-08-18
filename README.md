@@ -2,6 +2,10 @@
 
 This is a e-commerce website for my school-project.
 
+## Demo
+
+- [Demo](https://eggshell-membrane.netlify.app/)
+
 ## Technologies
 
 - Architecture : JAM-Stack (Serverless)
@@ -56,7 +60,3 @@ $ netlify dev
    │                                                 │
    └─────────────────────────────────────────────────┘
 ```
-
-## Demo
-
-- [Demo](https://eggshell-membrane.netlify.app/)
