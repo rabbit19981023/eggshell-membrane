@@ -35,6 +35,7 @@ $ npm run build-netlify
 
 ```bash
 $ netlify dev
+
 ◈ Netlify Dev ◈
 ◈ Injected build settings env var: GRAPHQL_ENDPOINT
 ◈ Ignored general context env var: LANG (defined in process)
