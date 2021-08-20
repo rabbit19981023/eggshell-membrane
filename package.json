@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build-netlify": "npm ci && npm run webpack && npm run build-aws-functions",
+    "build-netlify": "npm ci && npm run webpack && npm run build-aws-functions && npm ci --production",
     "webpack": "npx webpack",
     "build-aws-functions": "./node_modules/typescript/bin/tsc --project tsconfig-aws-functions.json",
     "build-aws-functions-dev": "npm run build-aws-functions -- --watch"
