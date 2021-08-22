@@ -4,7 +4,7 @@ This is a e-commerce website for my school-project.
 
 ## Demo
 
-- [實際網站](https://eggshell-membrane.netlify.app/)
+[實際網站](https://eggshell-membrane.netlify.app/)
 
 - 主頁:
 
