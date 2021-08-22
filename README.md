@@ -4,17 +4,51 @@ This is a e-commerce website for my school-project.
 
 ## Demo
 
-- [Demo](https://eggshell-membrane.netlify.app/)
+- [實際網站](https://eggshell-membrane.netlify.app/)
+
+- 主頁:
+
+    <img src="./github/demo_images/home_1.jpg" width="800px">
+
+    <img src="./github/demo_images/home_2.jpg" width="800px">
+
+- 品牌理念:
+
+    <img src="./github/demo_images/brand.jpg" width="800px">
+
+- 線上選購:
+
+    <img src="./github/demo_images/storefront.jpg" width="800px">
+
+- 商品頁面:
+
+    <img src="./github/demo_images/product.jpg" width="800px">
+
+- 購物車:
+
+    <img src="./github/demo_images/shopping_cart.jpg" width="800px">
+
+- 聯絡表單:
+
+    <img src="./github/demo_images/contact.jpg" width="800px">
+
+- 購物系統後台(使用Ecwid平台服務):
+
+    <img src="./github/demo_images/ecwid.jpg" width="800px">
+
+- 資料庫後台(使用GraphCMS平台服務):
+
+    <img src="./github/demo_images/graphcms.jpg" width="800px">
 
 ## Technologies
 
-- Architecture : JAM-Stack (Serverless)
+- Architecture : JAM-Stack (Serverless Stack)
 
-- Language : Typescript
+- Language : Node.js, Typescript
 
 - Frontend : Vanilla HTML/CSS/Javascript (using webpack to bundle all of them)
 
-- Backend : Netlify Serverless Function (Node.js)
+- Backend : Netlify Serverless Function
 
 - Database : GraphCMS (GraphQL)
 
