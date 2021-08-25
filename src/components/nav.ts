@@ -20,10 +20,10 @@ const Navbar: string = `
         </ul>
         <ul class="navbar-nav ms-auto me-4">
           <li class="nav-item">
-            <a class="nav-link fs-5" href="/login">登入</a>
+            <a class="nav-link fs-5" href="#">登入</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link fs-5" href="/sign-up">註冊</a>
+            <a class="nav-link fs-5" href="#">註冊</a>
           </li>
         </ul>
       </div>
